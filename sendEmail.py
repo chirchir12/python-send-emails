@@ -7,11 +7,7 @@ sender_mail = os.environ.get('MY_EMAIL')
 password = os.environ.get('EMAIL_PASSWORD')
 
 
-with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
-    smtp.ehlo()
-    smtp.starttls()  # ecrypt
-    smtp.ehlo()
-
+with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
     smtp.login(sender_mail, password)
     subject = 'Hello there!!!!!!!!'
     body = 'this is your first email man'
