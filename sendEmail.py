@@ -8,11 +8,12 @@ load_dotenv()
 
 sender_mail = os.environ.get('MY_EMAIL')
 password = os.environ.get('EMAIL_PASSWORD')
+contactList =['echirchir@zamara.co.ke', 'chirchir7370@gmail.com']
 
 msg = EmailMessage()
 msg['Subject'] = 'Hooray this is 2021'
 msg['From'] = sender_mail
-msg['To'] = 'chirchir7370@gmail.com'
+msg['To'] = ', '.join(contactList)
 msg.set_content('we have attachement')
 
 images = [str(p) for p in Path("./sendemails").glob("*.PNG")]
